@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "resolveJsonModule": true,
+        "jsx": "preserve",
+        "target": "ESNext",
+        "module": "ESNext",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@theme": ["src/theme/index.scss"],
+            "@theme/*": ["src/theme/*"],
+            "aiwo-ui/dist/*": ["src/*"]
+        }
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"],
+    "references": [
+        {
+            "path": "./tsconfig.somebuild.json"
+        }
+    ]
+}

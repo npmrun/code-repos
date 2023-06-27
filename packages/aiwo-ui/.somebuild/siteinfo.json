@@ -1,0 +1,33 @@
+{
+    "title": "Feather UI",
+    "description": "轻羽UI",
+    "favicon": "https://fastly.jsdelivr.net/npm/@vant/assets/logo.png",
+    "meta": [{ "name": "a", "content": "b" }],
+    "navbar": [
+        {
+            "title": "组件",
+            "path": "/zh/ant-plus"
+        }
+    ],
+    "action": [
+    ],
+    "sidebar": [
+        {
+            "title": "基础组件",
+            "items": [
+                {
+                    "title": "关于",
+                    "path": "docs/about"
+                },
+                {
+                    "title": "Ant Plus",
+                    "type": "pc",
+                    "path": "ant-plus"
+                }
+            ]
+        },
+        {
+            "title": "扩展组件"
+        }
+    ]
+}

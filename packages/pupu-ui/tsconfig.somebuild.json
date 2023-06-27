@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "types": ["@somebuild/build-preview/type"]
+    },
+    "include": [".somebuild/**/*"]
+}

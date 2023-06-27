@@ -1,0 +1,33 @@
+{
+    "name": "aiwo-ui",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "dev": "somebuild preview --watch",
+        "build-site": "somebuild preview",
+        "build": "rimraf dist && somebuild build"
+    },
+    "buildinfo": {
+        "mode": "components-vue3",
+        "name": "aiwo-ui",
+        "theme": "src/theme/index.scss",
+        "componentsName": "components",
+        "outDir": "./dist",
+        "entry": "./src/index.ts"
+    },
+    "globals": {
+        "vue": "Vue"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "optionalDependencies": {
+        "ant-design-vue": "^3.2.20"
+    },
+    "dependencies": {
+        "vue": "^3.2.47"
+    },
+    "devDependencies": {
+        "ant-design-vue": "^3.2.20"
+    }
+}
