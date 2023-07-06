@@ -36,6 +36,16 @@
                     "title": "keyboard (mobile)",
                     "type": "mobile",
                     "path": "keyboard"
+                },
+                {
+                    "title": "mask",
+                    "type": "pc",
+                    "path": "mask"
+                },
+                {
+                    "title": "dialog",
+                    "type": "pc",
+                    "path": "dialog"
                 }
             ]
         },

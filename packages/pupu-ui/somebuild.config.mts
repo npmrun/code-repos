@@ -17,6 +17,7 @@ export default defineRootConfig({
         alias: {
             '@': './src',
             '@theme': './src/theme',
+            'pupu-ui': './src/index.ts',
             'pupu-ui/dist': './src',
         },
         define: {

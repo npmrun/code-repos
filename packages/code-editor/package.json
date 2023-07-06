@@ -1,0 +1,27 @@
+{
+    "name": "code-editor",
+    "version": "0.0.1",
+    "type": "module",
+    "description": "",
+    "main": "dist/code-editor.js",
+    "types": "dist/code-editor.d.ts",
+    "buildinfo": {
+        "mode": "component-vue3",
+        "name": "CodeEditor",
+        "fileName": "code-editor"
+    },
+    "scripts": {
+        "dev": "somebuild build -w",
+        "build": "rimraf dist && somebuild build"
+    },
+    "keywords": [],
+    "license": "ISC",
+    "peerDependencies": {
+        "monaco-editor": ">=0.33.0",
+        "vue": ">=3.2.0"
+    },
+    "devDependencies": {
+        "monaco-editor": "^0.35.0",
+        "vue": "^3.2.47"
+    }
+}

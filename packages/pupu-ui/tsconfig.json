@@ -13,6 +13,7 @@
             "@/*": ["src/*"],
             "@theme": ["src/theme/index.scss"],
             "@theme/*": ["src/theme/*"],
+            "pupu-ui": ["src/index.ts"],
             "pupu-ui/dist/*": ["src/*"]
         }
     },

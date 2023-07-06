@@ -1,3 +1,6 @@
 export * from './button'
 export * from './adjust-line'
 export * from './captcha'
+export * from './keyboard'
+export * from './mask'
+export * from './dialog'

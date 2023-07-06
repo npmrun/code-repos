@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <style>
+        .video-wrapper {
+            width: 500px;
+            height: 400px;
+            position: relative;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-wrapper .play-btn {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -40px;
+            margin-left: -40px;
+            pointer-events: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-wrapper">
+        <!-- poster="https://image-static.segmentfault.com/114/326/1143266354-57b188ae776c7_fix732" -->
+        <video muted id="video" webkit-playsinline style="object-fit:fill;" preload="metadata">
+            <source src="//www.w3school.com.cn/i/movie.ogg" type="video/ogg" />
+            <source src="//www.w3school.com.cn/i/movie.mp4" type="video/mp4" />
+            <source src="//www.w3school.com.cn/i/movie.webm" type="video/webm" />
+            <object data="//www.w3school.com.cn/i/movie.mp4" width="320" height="240">
+                <embed width="320" height="240" src="//www.w3school.com.cn/i/movie.swf" />
+            </object>
+        </video>
+        <div class="play-btn">
+            <img style="object-fit: contain;" src="//game.gtimg.cn/images/lol/act/a20210924vex/head-play.png" alt="">
+        </div>
+    </div>
+    <script src="../dist/wingVideo.global.js"></script>
+    <script>
+        // const videoEl = document.querySelector(".video-wrapper #video")
+        // const playEl = document.querySelector(".video-wrapper .play-btn")
+        // playEl.addEventListener("click", function(){
+        //     // videoEl.currentTime = 2
+        //     videoEl.play()
+        // })
+        // //获取到元数据
+        // videoEl.addEventListener('loadedmetadata',function(){
+        //     console.log(this.poster);
+        //     console.log(this.duration);
+        // });
+        new wingVideo()
+    </script>
+</body>
+
+</html>

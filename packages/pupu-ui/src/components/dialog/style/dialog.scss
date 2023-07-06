@@ -1,0 +1,37 @@
+@import '../../../theme/init';
+
+.pu-dialog-fade-enter-active,
+.pu-dialog-fade-leave-active {
+    transition: opacity 0.2s ease;
+}
+
+.pu-dialog-fade-enter-from,
+.pu-dialog-fade-leave-to {
+    opacity: 0;
+}
+
+/* 可以为进入和离开动画设置不同的持续时间和动画函数 */
+.pu-dialog-slide-fade-enter-active {
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.pu-dialog-slide-fade-leave-active {
+    transition: opacity 0.2s cubic-bezier(1, 0.5, 0.8, 1), transform 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.pu-dialog-slide-fade-enter-from,
+.pu-dialog-slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+}
+
+.pu-dialog__wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+
+    .pu-dialog__content {
+        margin: auto;
+    }
+}

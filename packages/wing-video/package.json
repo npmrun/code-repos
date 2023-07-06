@@ -1,0 +1,21 @@
+{
+    "name": "wing-video",
+    "version": "0.0.2",
+    "description": "",
+    "scripts": {
+        "build": "somebuild build",
+        "dev": "somebuild build -w"
+    },
+    "buildinfo": {
+        "mode": "lib",
+        "name": "wingVideo",
+        "outDir": "./dist",
+        "entry": "./src/xVideo/index.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "esbuild-plugin-scss": "^1.0.0"
+    }
+}
