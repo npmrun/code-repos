@@ -6,6 +6,8 @@ import path from 'path'
 import Vue from '@vitejs/plugin-vue'
 import Markdown from 'vite-plugin-md'
 import { createRequire } from 'module'
+import { footnote } from "@mdit/plugin-footnote";
+import { mathjax, createMathjaxInstance } from "@mdit/plugin-mathjax";
 
 const require = createRequire(import.meta.url)
 
@@ -26,7 +28,23 @@ const config: InlineConfig = {
         Vue({
             include: [/\.vue$/, /\.md$/],
         }),
-        Markdown(),
+        Markdown({
+            markdownItOptions: {
+                breaks: true,
+                html: true,
+                typographer: true,
+                linkify: true
+            },
+            markdownItSetup(md) {
+                // https://mdit-plugins.github.io/zh/
+                md.use(require('markdown-it-task-lists'));
+                md.use(require('markdown-it-anchor'));
+                md.use(require('markdown-it-prism'));
+                md.use(footnote);
+                const mathjaxInstance = createMathjaxInstance({});
+                md.use(mathjax, mathjaxInstance);
+            }
+        }),
     ],
     build: {
         emptyOutDir: true,

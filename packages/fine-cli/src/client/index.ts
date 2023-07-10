@@ -1,10 +1,6 @@
 import { createApp } from "vue";
-import HelloWorld from './readme.md'
-import "./style.scss"
+import App from './App.vue'
 
-console.log(11)
-console.log(HelloWorld)
-
-const app = createApp(HelloWorld)
+const app = createApp(App)
 
 app.mount("#app")

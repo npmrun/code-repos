@@ -1,15 +1,20 @@
 html {
-    line-height: 1.15; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
+    line-height: 1.15;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
 }
+
 body {
     margin: 20px;
 }
 
 // 第一部分 样式统一标准化
 .markdown-body {
-    line-height: 1.15; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
+    line-height: 1.15;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
 
     main {
         display: block;
@@ -34,9 +39,12 @@ body {
    */
 
     hr {
-        box-sizing: content-box; /* 1 */
-        height: 0; /* 1 */
-        overflow: visible; /* 2 */
+        box-sizing: content-box;
+        /* 1 */
+        height: 0;
+        /* 1 */
+        overflow: visible;
+        /* 2 */
     }
 
     /**
@@ -45,8 +53,10 @@ body {
    */
 
     pre {
-        font-family: monospace, monospace; /* 1 */
-        font-size: 1em; /* 2 */
+        font-family: monospace, monospace;
+        /* 1 */
+        font-size: 1em;
+        /* 2 */
     }
 
     /* Text-level semantics
@@ -66,9 +76,12 @@ body {
    */
 
     abbr[title] {
-        border-bottom: none; /* 1 */
-        text-decoration: underline; /* 2 */
-        text-decoration: underline dotted; /* 2 */
+        border-bottom: none;
+        /* 1 */
+        text-decoration: underline;
+        /* 2 */
+        text-decoration: underline dotted;
+        /* 2 */
     }
 
     /**
@@ -88,8 +101,10 @@ body {
     code,
     kbd,
     samp {
-        font-family: monospace, monospace; /* 1 */
-        font-size: 1em; /* 2 */
+        font-family: monospace, monospace;
+        /* 1 */
+        font-size: 1em;
+        /* 2 */
     }
 
     /**
@@ -145,10 +160,14 @@ body {
     optgroup,
     select,
     textarea {
-        font-family: inherit; /* 1 */
-        font-size: 100%; /* 1 */
-        line-height: 1.15; /* 1 */
-        margin: 0; /* 2 */
+        font-family: inherit;
+        /* 1 */
+        font-size: 100%;
+        /* 1 */
+        line-height: 1.15;
+        /* 1 */
+        margin: 0;
+        /* 2 */
     }
 
     /**
@@ -223,12 +242,18 @@ body {
    */
 
     legend {
-        box-sizing: border-box; /* 1 */
-        color: inherit; /* 2 */
-        display: table; /* 1 */
-        max-width: 100%; /* 1 */
-        padding: 0; /* 3 */
-        white-space: normal; /* 1 */
+        box-sizing: border-box;
+        /* 1 */
+        color: inherit;
+        /* 2 */
+        display: table;
+        /* 1 */
+        max-width: 100%;
+        /* 1 */
+        padding: 0;
+        /* 3 */
+        white-space: normal;
+        /* 1 */
     }
 
     /**
@@ -254,8 +279,10 @@ body {
 
     [type='checkbox'],
     [type='radio'] {
-        box-sizing: border-box; /* 1 */
-        padding: 0; /* 2 */
+        box-sizing: border-box;
+        /* 1 */
+        padding: 0;
+        /* 2 */
     }
 
     /**
@@ -273,8 +300,10 @@ body {
    */
 
     [type='search'] {
-        -webkit-appearance: textfield; /* 1 */
-        outline-offset: -2px; /* 2 */
+        -webkit-appearance: textfield;
+        /* 1 */
+        outline-offset: -2px;
+        /* 2 */
     }
 
     /**
@@ -291,8 +320,10 @@ body {
    */
 
     ::-webkit-file-upload-button {
-        -webkit-appearance: button; /* 1 */
-        font: inherit; /* 2 */
+        -webkit-appearance: button;
+        /* 1 */
+        font: inherit;
+        /* 2 */
     }
 
     /* Interactive
@@ -419,20 +450,22 @@ body {
     }
 
     pre {
-        font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-        overflow: auto;
-        position: relative;
-        line-height: 1.75;
+        //     font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+        //     overflow: auto;
+        //     position: relative;
+        //     line-height: 1.75;
 
-        > code {
-            font-size: 12px;
-            padding: 15px 12px;
-            margin: 0;
-            word-break: normal;
-            display: block;
-            overflow-x: auto;
-            color: #333;
-            background: #f8f8f8;
+        >code {
+            //         font-size: 12px;
+            //         padding: 15px 12px;
+            //         margin: 0;
+            //         word-break: normal;
+            //         display: block;
+            //         overflow-x: auto;
+            //         color: #333;
+            //         background: #f8f8f8;
+            padding: 0;
+            background-color: transparent;
         }
     }
 
@@ -489,7 +522,7 @@ body {
             content: '';
         }
 
-        > p {
+        >p {
             margin: 10px 0;
         }
     }
@@ -527,6 +560,7 @@ body {
     }
 
     ol li .task-list-item {
+
         ul,
         ol {
             margin-top: 0;
@@ -534,6 +568,7 @@ body {
     }
 
     ul li .task-list-item {
+
         ul,
         ol {
             margin-top: 0;
@@ -541,6 +576,7 @@ body {
     }
 
     ol {
+
         ul,
         ol {
             margin-top: 3px;
@@ -548,6 +584,7 @@ body {
     }
 
     ul {
+
         ul,
         ol {
             margin-top: 3px;
@@ -591,18 +628,16 @@ $primary-color-3: #0269c81a;
 // #1abc9c1a;
 
 .markdown-body {
+
     h1,
     h2,
     h3 {
         padding-bottom: 0;
         display: inline;
         width: auto;
-        background: linear-gradient(
-                to bottom,
+        background: linear-gradient(to bottom,
                 transparent 70%,
-                $primary-color-2 0
-            )
-            no-repeat;
+                $primary-color-2 0) no-repeat;
 
         &::before {
             content: '';
@@ -632,7 +667,7 @@ $primary-color-3: #0269c81a;
         }
     }
 
-    blockquote > *:last-child {
+    blockquote>*:last-child {
         margin-bottom: 0 !important;
     }
 
@@ -654,7 +689,7 @@ $primary-color-3: #0269c81a;
     .task-list-item {
         list-style-type: none;
 
-        > input:nth-child(1) {
+        >input:nth-child(1) {
             margin-right: 6px;
         }
 
@@ -666,7 +701,7 @@ $primary-color-3: #0269c81a;
             cursor: pointer;
         }
 
-        & + .task-list-item {
+        &+.task-list-item {
             margin-top: 3px;
         }
 
@@ -675,7 +710,7 @@ $primary-color-3: #0269c81a;
         }
 
         input[type='checkbox'] {
-            margin: 0 3.2px 1.6px -17.6px;
+            margin: 0 3.2px 4px -17.6px;
             vertical-align: middle;
             width: 16px;
             height: 16px;
@@ -684,5 +719,11 @@ $primary-color-3: #0269c81a;
 
     .contains-task-list {
         margin-left: 18px;
+    }
+
+    mjx-container[jax=SVG][display=true] {
+        display: block;
+        text-align: center;
+        margin: 1em 0;
     }
 }
