@@ -1,0 +1,42 @@
+{
+    "name": "fine-cli",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "run-s build-prepare build-node build-client",
+        "build-prepare": "rimraf dist",
+        "build-node": "somebuild build",
+        "build-client": "run-s client:check client:complie client:alias client:copyClient",
+        "client:check": "vue-tsc --noEmit -p src/client",
+        "client:complie": "tsc -p src/client/tsconfig.json",
+        "client:alias": "tsc-alias -p src/client/tsconfig.json",
+        "client:copyClient": "tsx scripts/copyClient",
+        "dev": "somebuild build -w",
+        "fine": "node dist/fine.js"
+    },
+    "buildinfo": {
+        "mode": "lib",
+        "name": "fine",
+        "outDir": "./dist",
+        "entry": "./src/main.ts"
+    },
+    "bin": {
+        "fine": "./dist/fine.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "vue-tsc": "^1.8.4"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue": "^4.2.3",
+        "fs-extra": "^11.1.1",
+        "sass": "^1.54.9",
+        "vite": "^4.4.2",
+        "vite-plugin-md": "^0.21.5",
+        "vue": "^3.2.47"
+    }
+}
