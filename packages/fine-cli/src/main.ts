@@ -6,8 +6,8 @@ import path from 'path'
 import Vue from '@vitejs/plugin-vue'
 import Markdown from 'vite-plugin-md'
 import { createRequire } from 'module'
-import { footnote } from "@mdit/plugin-footnote";
-import { mathjax, createMathjaxInstance } from "@mdit/plugin-mathjax";
+import { footnote } from '@mdit/plugin-footnote'
+import { mathjax, createMathjaxInstance } from '@mdit/plugin-mathjax'
 
 const require = createRequire(import.meta.url)
 
@@ -20,10 +20,12 @@ const config: InlineConfig = {
             allow: [cwdDir, clientDir, searchForWorkspaceRoot(cwdDir)],
         },
     },
+    define: {},
     resolve: {
         alias: {
+            '@': clientDir,
             '@theme': themeDir,
-        }
+        },
     },
     optimizeDeps: {
         exclude: ['fine-cli'],
@@ -38,17 +40,17 @@ const config: InlineConfig = {
                 breaks: true,
                 html: true,
                 typographer: true,
-                linkify: true
+                linkify: true,
             },
             markdownItSetup(md) {
                 // https://mdit-plugins.github.io/zh/
-                md.use(require('markdown-it-task-lists'));
-                md.use(require('markdown-it-anchor'));
-                md.use(require('markdown-it-prism'));
-                md.use(footnote);
-                const mathjaxInstance = createMathjaxInstance({});
-                md.use(mathjax, mathjaxInstance);
-            }
+                md.use(require('markdown-it-task-lists'))
+                md.use(require('markdown-it-anchor'))
+                // md.use(require('markdown-it-prism'));
+                md.use(footnote)
+                const mathjaxInstance = createMathjaxInstance({})
+                md.use(mathjax, mathjaxInstance)
+            },
         }),
     ],
     build: {

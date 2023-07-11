@@ -13,15 +13,27 @@ declare module '*.md' {
 }
 
 declare module '@theme/index' {
-    import { App, Component } from "vue"
+    import { App, Component } from 'vue'
     interface Theme {
-        extends?: Theme,
-        setup(): void,
-        Layout: Component,
-        enhanceApp?: (ctx: {
-            app: App,
-        }) => any
+        extends?: Theme
+        setup(): void
+        Layout: Component
+        enhanceApp?: (ctx: { app: App }) => any
     }
     const theme: Theme
     export default theme
+}
+
+declare module 'markdown-it-task-lists' {
+    const taskLists: any
+    export default taskLists
+}
+declare module 'markdown-it-meta' {
+    const MarkdownIt: any
+    export default MarkdownIt
+}
+
+declare module 'markdown-it' {
+    const MarkdownIt: any
+    export default MarkdownIt
 }
