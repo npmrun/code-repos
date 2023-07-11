@@ -32,6 +32,10 @@ declare module 'markdown-it-meta' {
     const MarkdownIt: any
     export default MarkdownIt
 }
+declare module 'markdown-it-footnote' {
+    const MarkdownIt: any
+    export default MarkdownIt
+}
 
 declare module 'markdown-it' {
     const MarkdownIt: any

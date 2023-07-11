@@ -4,12 +4,6 @@ import { vitePluginVirtualEntry } from './node/plugins/entry'
 import { buildEntry } from './node/plugins/buildEntry'
 import path from 'path'
 import Vue from '@vitejs/plugin-vue'
-import Markdown from 'vite-plugin-md'
-import { createRequire } from 'module'
-import { footnote } from '@mdit/plugin-footnote'
-import { mathjax, createMathjaxInstance } from '@mdit/plugin-mathjax'
-
-const require = createRequire(import.meta.url)
 
 const config: InlineConfig = {
     root: clientDir,
@@ -34,23 +28,6 @@ const config: InlineConfig = {
         vitePluginVirtualEntry(),
         Vue({
             include: [/\.vue$/, /\.md$/],
-        }),
-        Markdown({
-            markdownItOptions: {
-                breaks: true,
-                html: true,
-                typographer: true,
-                linkify: true,
-            },
-            markdownItSetup(md) {
-                // https://mdit-plugins.github.io/zh/
-                md.use(require('markdown-it-task-lists'))
-                md.use(require('markdown-it-anchor'))
-                // md.use(require('markdown-it-prism'));
-                md.use(footnote)
-                const mathjaxInstance = createMathjaxInstance({})
-                md.use(mathjax, mathjaxInstance)
-            },
         }),
     ],
     build: {
