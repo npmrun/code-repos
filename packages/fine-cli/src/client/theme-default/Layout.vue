@@ -4,7 +4,8 @@ import Readme from "./readme.md"
 
 <template>
     <div style="max-width: 800px;margin: 0 auto;">
-        <Readme></Readme>
+        <!-- <Readme></Readme> -->
+        sfds
     </div>
 </template>
 

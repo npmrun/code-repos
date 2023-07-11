@@ -1,5 +1,5 @@
 import { createServer, searchForWorkspaceRoot, build, InlineConfig } from 'vite'
-import { clientDir, cwdDir, findEntry } from './share'
+import { clientDir, cwdDir, findEntry, themeDir } from './share'
 import { vitePluginVirtualEntry } from './node/plugins/entry'
 import { buildEntry } from './node/plugins/buildEntry'
 import path from 'path'
@@ -19,6 +19,11 @@ const config: InlineConfig = {
         fs: {
             allow: [cwdDir, clientDir, searchForWorkspaceRoot(cwdDir)],
         },
+    },
+    resolve: {
+        alias: {
+            '@theme': themeDir,
+        }
     },
     optimizeDeps: {
         exclude: ['fine-cli'],
