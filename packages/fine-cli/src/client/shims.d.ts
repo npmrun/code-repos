@@ -41,3 +41,13 @@ declare module 'markdown-it' {
     const MarkdownIt: any
     export default MarkdownIt
 }
+
+declare module "basicdata"{
+    const data: any
+    export default data
+}
+
+declare module "sitedata"{
+    const data: any
+    export default data
+}

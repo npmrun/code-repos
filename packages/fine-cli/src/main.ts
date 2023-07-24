@@ -2,6 +2,7 @@ import { createServer, searchForWorkspaceRoot, build, InlineConfig } from 'vite'
 import { clientDir, cwdDir, findEntry, themeDir } from './share'
 import { vitePluginVirtualEntry } from './node/plugins/entry'
 import { buildEntry } from './node/plugins/buildEntry'
+import Sitedata from './node/plugins/sitedata'
 import path from 'path'
 import Vue from '@vitejs/plugin-vue'
 
@@ -18,6 +19,7 @@ const config: InlineConfig = {
     resolve: {
         alias: {
             '@': clientDir,
+            'root': path.resolve(cwdDir),
             '@theme': themeDir,
         },
     },
@@ -29,6 +31,7 @@ const config: InlineConfig = {
         Vue({
             include: [/\.vue$/, /\.md$/],
         }),
+        Sitedata()
     ],
     build: {
         emptyOutDir: true,
