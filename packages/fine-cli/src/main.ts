@@ -1,4 +1,10 @@
-import { createServer, searchForWorkspaceRoot, build, InlineConfig } from 'vite'
+import {
+    createServer,
+    searchForWorkspaceRoot,
+    build,
+    InlineConfig,
+    normalizePath,
+} from 'vite'
 import { clientDir, cwdDir, findEntry, themeDir } from './share'
 import { vitePluginVirtualEntry } from './node/plugins/entry'
 import { buildEntry } from './node/plugins/buildEntry'
@@ -16,7 +22,6 @@ const config: InlineConfig = {
             allow: [cwdDir, clientDir, searchForWorkspaceRoot(cwdDir)],
         },
     },
-    define: {},
     resolve: {
         alias: {
             '@': clientDir,
@@ -37,6 +42,20 @@ const config: InlineConfig = {
         inject({
             process: 'process/browser',
         }),
+        {
+            transform(code, id, options?) {
+                if (
+                    id.includes(normalizePath(cwdDir)) ||
+                    id.includes(normalizePath(clientDir)) // && !id.includes('node_modules')//TOOD 打包后这里肯定是在node_modules中
+                ) {
+                    code = code.replace(
+                        new RegExp('__DATA__', 'g'),
+                        'root/**/*.md'
+                    )
+                }
+                return code
+            },
+        },
     ],
     build: {
         emptyOutDir: true,

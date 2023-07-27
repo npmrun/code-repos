@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import MarkView from '@/components/MarkView.vue'
 import sitedata from 'sitedata'
-import basicdata from 'basicdata'
+// import basicdata from 'basicdata'
 import path from 'path-browserify'
 import { reactive } from 'vue'
 // import text from './readme.md?raw'
+
+const basicdata = import.meta.glob("__DATA__", { eager: true, as: 'raw' })
+console.log(basicdata)
 
 const realdata: any = reactive({})
 Object.keys(basicdata).forEach((v) => {
@@ -12,14 +15,19 @@ Object.keys(basicdata).forEach((v) => {
     // https://github.com/browserify/path-browserify/issues/29#issuecomment-1600002373
     console.log(v)
     // @ts-ignore
-    path.cwd = ()=>{
+    path.cwd = () => {
         return sitedata.cwdDir
     }
-    console.log(path.resolve(sitedata.clientDir, v));
-    
-    console.log(path.join(sitedata.clientDir, v).replace(sitedata.cwdDir, '').slice(1)
-        .replace(/\\/g, '/'))
-    
+    console.log(path.resolve(sitedata.clientDir, v))
+
+    console.log(
+        path
+            .join(sitedata.clientDir, v)
+            .replace(sitedata.cwdDir, '')
+            .slice(1)
+            .replace(/\\/g, '/')
+    )
+
     const relativePath = path
         .resolve(sitedata.clientDir, v.slice(1))
         .replace(sitedata.cwdDir, '')
@@ -32,6 +40,6 @@ console.log(realdata)
 
 <template>
     <div style="max-width: 800px; margin: 0 auto">
-        <MarkView :model-value="realdata['aaa.md']"></MarkView>
+        <MarkView :model-value="realdata['zz.md']"></MarkView>
     </div>
 </template>
