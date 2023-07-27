@@ -5,6 +5,7 @@ import { buildEntry } from './node/plugins/buildEntry'
 import Sitedata from './node/plugins/sitedata'
 import path from 'path'
 import Vue from '@vitejs/plugin-vue'
+import inject from '@rollup/plugin-inject'
 
 const config: InlineConfig = {
     root: clientDir,
@@ -19,11 +20,12 @@ const config: InlineConfig = {
     resolve: {
         alias: {
             '@': clientDir,
-            'root': path.resolve(cwdDir),
+            root: path.resolve(cwdDir),
             '@theme': themeDir,
         },
     },
     optimizeDeps: {
+        include: ['process/browser'], // process/browser不是es模块
         exclude: ['fine-cli'],
     },
     plugins: [
@@ -31,7 +33,10 @@ const config: InlineConfig = {
         Vue({
             include: [/\.vue$/, /\.md$/],
         }),
-        Sitedata()
+        Sitedata(),
+        inject({
+            process: 'process/browser',
+        }),
     ],
     build: {
         emptyOutDir: true,
