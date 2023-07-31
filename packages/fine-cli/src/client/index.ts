@@ -1,6 +1,7 @@
 
 import RawTheme from '@theme/index'
 import { defineComponent, h, createApp } from 'vue'
+import Router from './router'
 
 function resolveThemeExtends(theme: typeof RawTheme): typeof RawTheme {
     if (theme.extends) {
@@ -29,6 +30,7 @@ const BaseApp = defineComponent({
 
 function createClientApp() {
     let app = createApp(BaseApp);
+    app.use(Router);
     (async () => {
         if (Theme.enhanceApp) {
             await Theme.enhanceApp({

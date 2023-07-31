@@ -12,6 +12,7 @@ import Sitedata from './node/plugins/sitedata'
 import path from 'path'
 import Vue from '@vitejs/plugin-vue'
 import inject from '@rollup/plugin-inject'
+import Markdown from 'vite-plugin-md'
 
 const config: InlineConfig = {
     root: clientDir,
@@ -38,11 +39,13 @@ const config: InlineConfig = {
         Vue({
             include: [/\.vue$/, /\.md$/],
         }),
+        Markdown(),
         Sitedata(),
         inject({
             process: 'process/browser',
         }),
         {
+            name: "replace-data-plugin",
             transform(code, id, options?) {
                 if (
                     id.includes(normalizePath(cwdDir)) ||
