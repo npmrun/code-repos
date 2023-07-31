@@ -1,0 +1,15 @@
+{
+  "name": "docs-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "fine"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fine-cli": "workspace:*"
+  }
+}

@@ -68,6 +68,12 @@ importers:
         specifier: ^5.1.3
         version: 5.1.3
 
+  examples/docs-demo:
+    dependencies:
+      fine-cli:
+        specifier: workspace:*
+        version: link:../../packages/fine-cli
+
   packages/aiwo-ui:
     dependencies:
       vue:

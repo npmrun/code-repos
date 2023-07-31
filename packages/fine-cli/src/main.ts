@@ -11,14 +11,12 @@ import { buildEntry } from './node/plugins/buildEntry'
 import Sitedata from './node/plugins/sitedata'
 import path from 'path'
 import Vue from '@vitejs/plugin-vue'
-import inject from '@rollup/plugin-inject'
 import Markdown from 'vite-plugin-md'
 
 const config: InlineConfig = {
     root: clientDir,
     server: {
         port: 3366,
-        host: '0.0.0.0',
         fs: {
             allow: [cwdDir, clientDir, searchForWorkspaceRoot(cwdDir)],
         },
@@ -31,21 +29,12 @@ const config: InlineConfig = {
         },
     },
     optimizeDeps: {
-        include: ['process/browser'], // process/browser不是es模块
         exclude: ['fine-cli'],
     },
     plugins: [
-        vitePluginVirtualEntry(),
-        Vue({
-            include: [/\.vue$/, /\.md$/],
-        }),
-        Markdown(),
-        Sitedata(),
-        inject({
-            process: 'process/browser',
-        }),
         {
-            name: "replace-data-plugin",
+            name: 'replace-data-plugin',
+            enforce: 'pre',
             transform(code, id, options?) {
                 if (
                     id.includes(normalizePath(cwdDir)) ||
@@ -59,6 +48,12 @@ const config: InlineConfig = {
                 return code
             },
         },
+        vitePluginVirtualEntry(),
+        Vue({
+            include: [/\.vue$/, /\.md$/],
+        }),
+        Markdown(),
+        Sitedata(),
     ],
     build: {
         emptyOutDir: true,
