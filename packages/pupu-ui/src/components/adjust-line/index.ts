@@ -1,5 +1,5 @@
 import AdjustLine from './adjust-line.vue'
-import { withInstall } from '@/hooks'
+import { withInstall } from '@/utils/withInstall'
 
 const PuAdjustLine = withInstall("adjust-line", AdjustLine)
 

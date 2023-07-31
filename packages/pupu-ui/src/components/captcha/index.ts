@@ -1,6 +1,6 @@
 import Captcha from './captcha.vue'
 import './style/captcha.scss'
-import { withInstall } from '@/hooks'
+import { withInstall } from '@/utils/withInstall'
 
 const PuCaptcha = withInstall("captcha", Captcha)
 
