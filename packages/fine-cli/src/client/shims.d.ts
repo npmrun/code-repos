@@ -51,3 +51,8 @@ declare module "sitedata"{
     const data: any
     export default data
 }
+
+declare module "collectdata"{
+    const data: any
+    export default data
+}

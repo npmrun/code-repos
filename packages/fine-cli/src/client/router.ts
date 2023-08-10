@@ -1,4 +1,5 @@
 import { App, Plugin, h, Component, ref, computed } from 'vue'
+import collectdata from 'collectdata'
 
 export interface Route {
     path: string
@@ -8,22 +9,21 @@ export interface Route {
 export function createRouter() {
     const currentPath = ref<string>()
 
-    const basicdata = import.meta.glob('__DATA__', { eager: true })
-
     const realdata = computed<Record<string, any>>(() => {
         const result: Record<string, any> = {}
-        Object.keys(basicdata).forEach((v) => {
+        Object.keys(collectdata).forEach((v) => {
             const relativePath = v
                 .replace(/\\/g, '/')
                 .replace(/\.md/g, '')
                 .replace(/\.mdx/g, '')
             result[
                 relativePath.startsWith('/') ? relativePath : '/' + relativePath
-            ] = basicdata[v]
+            ] = collectdata[v]
         })
         return result
     })
-
+    console.log(realdata.value);
+    
     return {
         install(app: App, opts?: any) {
             mountRouterView(app)

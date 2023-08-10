@@ -11,8 +11,8 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"],
-            "@theme": ["src/theme/index.scss"],
-            "@theme/*": ["src/theme/*"],
+            "@theme-chalk": ["src/theme-chalk/index.scss"],
+            "@theme-chalk/*": ["src/theme-chalk/*"],
             "pupu-ui": ["src/index.ts"],
             "pupu-ui/dist/*": ["src/*"]
         }

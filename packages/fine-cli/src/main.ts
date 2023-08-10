@@ -12,6 +12,12 @@ import Sitedata from './node/plugins/sitedata'
 import path from 'path'
 import Vue from '@vitejs/plugin-vue'
 import Markdown from 'vite-plugin-md'
+import chokidar from 'chokidar'
+
+// import FastGlob from 'fast-glob'
+
+// const aa = FastGlob.sync(['**/*.md', "!node_modules"], {cwd: cwdDir})
+// console.log(aa);
 
 const config: InlineConfig = {
     root: clientDir,
@@ -19,6 +25,9 @@ const config: InlineConfig = {
         port: 3366,
         fs: {
             allow: [cwdDir, clientDir, searchForWorkspaceRoot(cwdDir)],
+        },
+        watch: {
+            cwd: cwdDir,
         },
     },
     resolve: {
@@ -34,18 +43,42 @@ const config: InlineConfig = {
     plugins: [
         {
             name: 'replace-data-plugin',
-            enforce: 'pre',
-            transform(code, id, options?) {
-                if (
-                    id.includes(normalizePath(cwdDir)) ||
-                    id.includes(normalizePath(clientDir)) // && !id.includes('node_modules')//TOOD 打包后这里肯定是在node_modules中
-                ) {
-                    code = code.replace(
-                        new RegExp('__DATA__', 'g'),
-                        'root/**/*.md'
-                    )
+            resolveId(id) {
+                if (id === 'collectdata') {
+                    return `collectdata`
                 }
-                return code
+            },
+            load(id) {
+                if (id === 'collectdata') {
+                    return `export default import.meta.glob('root/**/*.md', { eager: true })`
+                }
+            },
+            configureServer(server) {
+                const { moduleGraph, watcher, ws } = server
+                const reload = (path: string) => {
+                    console.log(path)
+                    // if (path === siteinfoPath) {
+                    //     // https://github.com/hannoeru/vite-plugin-pages/blob/0057b65f3a07045bc15614ad9530e26954b3bc88/src/utils.ts#L63
+                    //     const mods = moduleGraph.getModulesByFile(
+                    //         resolvedDesktopInfoVirtualModuleId
+                    //     )
+                    //     if (mods) {
+                    //         const seen = new Set<ModuleNode>()
+                    //         mods.forEach((mod) => {
+                    //             moduleGraph.invalidateModule(mod, seen)
+                    //         })
+                    //     }
+
+                    //     ws.send({ type: 'full-reload', path: path })
+                    //     // server.restart()
+                    //     // console.log('full-reload: ', path)
+                    // }
+                }
+                chokidar
+                    .watch(['**/*.md', '!node_modules'], { cwd: cwdDir })
+                    .on('add', reload)
+                    .on('change', reload)
+                    .on('unlink', reload)
             },
         },
         vitePluginVirtualEntry(),

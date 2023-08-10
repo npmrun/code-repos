@@ -34,6 +34,8 @@
     "dependencies": {
         "@mdit/plugin-mathjax": "^0.4.8",
         "@vitejs/plugin-vue": "^4.2.3",
+        "chokidar": "^3.5.3",
+        "fast-glob": "^3.3.0",
         "fs-extra": "^11.1.1",
         "highlight.js": "^11.8.0",
         "markdown-it": "^13.0.1",

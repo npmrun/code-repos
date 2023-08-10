@@ -10,7 +10,7 @@
     "buildinfo": {
         "mode": "components-vue3",
         "name": "pupu-ui",
-        "theme": "src/theme/index.scss",
+        "theme": "src/theme-chalk/index.scss",
         "componentsName": "components",
         "outDir": "./dist",
         "entry": "./src/index.ts"

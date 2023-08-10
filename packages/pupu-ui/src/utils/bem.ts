@@ -41,7 +41,7 @@ const createModifier = (prefixClass: string, modifierObject?: BEMModifier) => {
  * bem(['disabled', 'primary']) // button button--disabled button--primary
  */
 
-export const createCssScope = (prefix: string, identity = 'yk') => {
+export const createCssScope = (prefix: string, identity = 'pu') => {
     const prefixClass = `${identity}-${prefix.replace(identity, '')}`
 
     return (

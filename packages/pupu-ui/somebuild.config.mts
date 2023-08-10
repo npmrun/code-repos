@@ -6,7 +6,7 @@ export default defineRootConfig({
     "components-vue3": defineCompsonfig({
         alias: {
             '@': './src',
-            '@theme': './src/theme',
+            '@theme-chalk': './src/theme-chalk',
         },
         vite: {
             plugins: [
@@ -16,7 +16,7 @@ export default defineRootConfig({
     preview: definePreConfig({
         alias: {
             '@': './src',
-            '@theme': './src/theme',
+            '@theme-chalk': './src/theme-chalk',
             'pupu-ui': './src/index.ts',
             'pupu-ui/dist': './src',
         },
