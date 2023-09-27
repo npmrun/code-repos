@@ -1,0 +1,26 @@
+{
+    "name": "law-tree",
+    "version": "0.0.1-beta.1",
+    "description": "",
+    "scripts": {
+        "dev": "somebuild build -w",
+        "build": "rimraf dist && somebuild build"
+    },
+    "buildinfo": {
+        "mode": "component-vue3",
+        "name": "LawTree",
+        "fileName": "law-tree"
+    },
+    "keywords": [],
+    "license": "ISC",
+    "peerDependencies": {
+        "immer": "10",
+        "vue": ">3"
+    },
+    "devDependencies": {
+        "@somebuild/build-component-vue3": "^0.0.10",
+        "immer": "^10.0.2",
+        "somebuild": "^0.0.11",
+        "vue": "^3.2.47"
+    }
+}
