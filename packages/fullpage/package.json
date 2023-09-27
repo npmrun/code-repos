@@ -14,5 +14,9 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "somebuild": "^0.0.11",
+        "@somebuild/build-lib": "^0.0.10"
+    }
 }

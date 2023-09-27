@@ -23,5 +23,10 @@
     "license": "ISC",
     "dependencies": {
         "vue": "^3.2.47"
+    },
+    "devDependencies": {
+        "somebuild": "^0.0.11",
+        "@somebuild/build-components-vue3": "^0.0.10",
+        "@somebuild/build-preview": "^0.0.6"
     }
 }

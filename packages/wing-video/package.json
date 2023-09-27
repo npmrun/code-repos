@@ -16,6 +16,8 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "esbuild-plugin-scss": "^1.0.0"
+        "esbuild-plugin-scss": "^1.0.0",
+        "somebuild": "^0.0.11",
+        "@somebuild/build-lib": "^0.0.10"
     }
 }
